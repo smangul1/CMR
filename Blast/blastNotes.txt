@@ -1,0 +1,16 @@
+
+
+BLAST:
+https://www.ncbi.nlm.nih.gov/books/NBK279680/
+
+Make blast database add 1 instance of species for comparison:
+
+./makeblastdb -in FungiDB-41_FgraminearumPH-1_Genome.fasta -dbtype nucl  -parse_seqids -out test
+
+run blast on different file that is the same species:
+./blastn -db test -query GCF_000240135.3_ASM24013v3_genomic.fna -out results.out -outfmt "7 qseqid sseqid pident qlen length mismatch" 
+
+
+
+Find all sequence identifications
+grep '>' Fusarium_graminearum_gca_000599445.CS3005v1.dna.toplevel.fa -A 10
